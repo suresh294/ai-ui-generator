@@ -1,0 +1,181 @@
+/* Basic Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+}
+
+.left-panel {
+  flex: 1;
+  min-width: 300px;
+}
+
+.middle-panel {
+  flex: 1.5;
+  min-width: 400px;
+}
+
+.right-panel {
+  flex: 1.5;
+  min-width: 400px;
+  border-right: none;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.panel-header h2 {
+  margin: 0;
+}
+
+.history-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.history-controls button {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.history-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.history-controls button:not(:disabled):hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+h2 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.chat-input {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.generate-button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.generate-button:hover {
+  background-color: #0056b3;
+}
+
+.explanation-area {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  border-left: 4px solid #007bff;
+  font-style: italic;
+  font-size: 0.95rem;
+  min-height: 100px;
+}
+
+.code-editor {
+  width: 100%;
+  flex-grow: 1;
+  padding: 15px;
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  background-color: #282c34;
+  color: #abb2bf;
+}
+
+.preview-container {
+  width: 100%;
+  flex-grow: 1;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 0;
+  overflow: hidden;
+  /* Prevent double scrollbars, let wrapper handle it */
+  position: relative;
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.preview-container>* {
+  height: 100% !important;
+  width: 100%;
+}
+
+/* Ensure non-sidebar content takes remaining space */
+.preview-container> :not(.component-sidebar) {
+  flex: 1;
+  min-width: 0;
+}
+
+.preview-placeholder {
+  color: #999;
+  font-size: 1.1rem;
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .app-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .panel {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    min-width: 100%;
+  }
+}
