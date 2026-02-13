@@ -72,7 +72,7 @@ function App() {
     const previousCode = (current.code && !current.code.includes('//')) ? current.code : null;
 
     try {
-      const response = await fetch('http://localhost:5000/generate', {
+      const response = await fetch('https://ai-ui-generator-7x15.onrender.com/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt, previousCode }),
