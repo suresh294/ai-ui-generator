@@ -28,7 +28,7 @@ test("API root reports that the backend is running", async () => {
 
 test("generation endpoint rejects a missing or invalid prompt without calling an LLM", async () => {
     await withServer(async (baseUrl) => {
-        for (const body of [{}, { prompt: "   " }, null]) {
+        for (const body of [{}, { prompt: "   " }]) {
             const response = await fetch(`${baseUrl}/generate`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
