@@ -40,6 +40,8 @@ The generator is designed to be collaborative and iterative:
 ```bash
 cd backend
 npm install
+cp .env.example .env
+# Add your OpenRouter API key to .env
 node server.js
 ```
 The backend runs on `http://localhost:5000`.
