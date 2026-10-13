@@ -1,5 +1,7 @@
 # AI Agent → Deterministic UI Generator
 
+[![CI](https://github.com/suresh294/ai-ui-generator/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/suresh294/ai-ui-generator/actions/workflows/ci.yml)
+
 A robust AI-powered UI generation system that enforces architectural constraints and design consistency through a multi-agent pipeline and strict validation.
 
 ## 🏗️ Architecture Overview
@@ -32,7 +34,7 @@ The generator is designed to be collaborative and iterative:
 
 ### 1. Prerequisites
 - Node.js installed.
-- An OpenAI API Key (or compatible LLM provider) configured in `backend/.env`.
+- An OpenRouter API key configured as `OPENROUTER_API_KEY` in `backend/.env`.
 
 ### 2. Backend Setup
 ```bash
@@ -50,7 +52,10 @@ npm run dev
 ```
 The frontend will typically be available at `http://localhost:5173`.
 
-## ⚠️ Known Limitations
+## ⚠️ Known Limitations and Security
+
+- A public deployment URL has not been verified; run the app locally using the instructions above.
+- The component whitelist and regex-based validation are guardrails, not a secure sandbox for arbitrary generated JavaScript. Do not expose this prototype to untrusted users or execute generated output with sensitive browser permissions.
 
 - **No Mobile Responsiveness**: The current decorator shells are optimized for desktop dashboard layouts.
 - **Basic Layout Detection**: The Designer agent uses a set of fixed layout patterns (Centered vs. Sidebar-based) rather than fluid CSS Grid/Flexbox generation.
