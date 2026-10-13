@@ -58,6 +58,7 @@ The frontend will typically be available at `http://localhost:5173`.
 
 - A public deployment URL has not been verified; run the app locally using the instructions above.
 - The component whitelist and regex-based validation are guardrails, not a secure sandbox for arbitrary generated JavaScript. Do not expose this prototype to untrusted users or execute generated output with sensitive browser permissions.
+- CI reports unresolved high-severity dependency advisories. Review and resolve these before any public deployment; do not treat a passing build as a security audit.
 
 - **No Mobile Responsiveness**: The current decorator shells are optimized for desktop dashboard layouts.
 - **Basic Layout Detection**: The Designer agent uses a set of fixed layout patterns (Centered vs. Sidebar-based) rather than fluid CSS Grid/Flexbox generation.
