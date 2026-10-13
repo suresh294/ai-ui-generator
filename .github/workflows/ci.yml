@@ -30,6 +30,18 @@ jobs:
       - name: Install backend dependencies
         run: npm ci --prefix backend
 
+      - name: Report backend dependency audit findings
+        continue-on-error: true
+        run: |
+          npm audit --prefix backend --json > /tmp/backend-audit.json || true
+          node - <<'NODE'
+          const report = require('/tmp/backend-audit.json');
+          for (const [name, item] of Object.entries(report.vulnerabilities || {})) {
+            const via = item.via.map((entry) => typeof entry === 'string' ? entry : entry.title).join('; ');
+            console.log(`${name}: ${item.severity}; fixAvailable=${JSON.stringify(item.fixAvailable)}; ${via}`);
+          }
+          NODE
+
       - name: Run backend smoke tests
         run: npm test --prefix backend
 
